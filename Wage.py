@@ -7,6 +7,11 @@ def wage(ja,PD,AEAO,z):
   Reference: Barnitsas, M.M., Ray, D. and Kinley, P. (1981).
   KT, KQ and Efficiency Curves for the Wageningen B-Series Propellers
   http://deepblue.lib.umich.edu/handle/2027.42/3557
+  
+  Ja: Advance Coefficient
+  PD: Pitch/Diameter coefficient
+  AEAO: Expand Propeller Area Coefficient
+  z: Numbers of Blade propellers
   """
   import scipy.io
   import math
