@@ -5,6 +5,7 @@ def wage(ja,PD,AEAO,z):
   http://deepblue.lib.umich.edu/handle/2027.42/3557
   """
   import scipy.io
+  import math
   mat = scipy.io.loadmat('/content/WageningData.mat')
   KT = sum(mat['WagCThrust_stuv']*((ja)**mat['WagThrust_s'])*PD**mat['WagThrust_t']*AEAO**mat['WagThrust_u']*z**mat['WagThrust_v'])
   KQ= sum(mat['WagCTorque_stuv']*((ja)**mat['WagTorque_s'])*PD**mat['WagTorque_t']*AEAO**mat['WagTorque_u']*z**mat['WagTorque_v'])
