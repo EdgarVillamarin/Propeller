@@ -1,3 +1,7 @@
+import pandas as pd
+import numpy as np
+import math
+
 def wage(ja,PD,AEAO,z):
   """
   Reference: Barnitsas, M.M., Ray, D. and Kinley, P. (1981).
@@ -12,3 +16,33 @@ def wage(ja,PD,AEAO,z):
   KT=float(KT)
   KQ=float(KQ)
   return KT,KQ
+
+def curve_kt_kq(PD,AEAO,z):
+  """
+  Determine the KT: Thrust coefficient, KQ: Torque coefficient, no= open water efficiency for a 
+  different values of advance coefficient J.
+  Author: Nav. Eng. Edgar Villamarin
+  mail: e_villamarin@grupo-villamarin.com
+  """
+  if z>2 and z<7 and PD> 0.5 and PD<1.4 and AEAO>0.35 and AEAO<1.40:
+    j=np.arange(0,2,0.001)
+    kt=[]
+    kq=[]
+    ne=[]
+    jn=0
+    for x in range(0,len(j),1):
+      kt1,kq1=wage(j[x],PD,AEAO,z)
+      if kt1>0 and kq1>0:
+        kt.append(kt1)
+        kq.append(kq1)
+        ne.append((j[x]/(2*3.1416))*(kt1/kq1))
+        jn=jn+1
+    j=j[0:jn]
+    villamarin=pd.DataFrame()
+    villamarin['J']=j
+    villamarin['KT']=kt
+    villamarin['KQ']=kq
+    villamarin['no']=ne
+  else:
+    return print('Check aplication limits')
+  return villamarin
