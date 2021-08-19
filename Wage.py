@@ -3,18 +3,18 @@ import numpy as np
 import math
 import glob
 import numpy.matlib
-""""
-Author: Nav. Eng. Edgar Villamarin Garcia
-Mail: e_villamarin@grupo-villamarin.com
-Web: www.grupo-villamarin.com
 
-""""
+
+
+
 def wage(ja,PD,AEAO,z):
   """
   Reference: Barnitsas, M.M., Ray, D. and Kinley, P. (1981).
   KT, KQ and Efficiency Curves for the Wageningen B-Series Propellers
   http://deepblue.lib.umich.edu/handle/2027.42/3557
-  
+  Author: Nav. Eng. Edgar Villamarin Garcia
+  Mail: e_villamarin@grupo-villamarin.com
+  Web: www.grupo-villamarin.com
   Ja: Advance Coefficient
   PD: Pitch/Diameter coefficient
   AEAO: Expand Propeller Area Coefficient
