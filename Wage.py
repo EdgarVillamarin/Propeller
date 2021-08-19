@@ -90,20 +90,23 @@ def curve_kt_kq_kaplan(FileID,PD):
   if  PD> 0.5 and PD<1.4:
     j=np.arange(0,2,0.001)
     kt=[]
+    ktn=[]
     kq=[]
     ne=[]
     jn=0
     for x in range(0,len(j),1):
-      kt1,kq1=kaplan(FileID,PD,j[x])
+      kt1,ktn1,kq1=kaplan(FileID,PD,j[x])
       if kt1>0 and kq1>0:
         kt.append(kt1)
         kq.append(kq1)
+        ktn.append(ktn1)
         ne.append((j[x]/(2*3.1416))*(kt1/kq1))
         jn=jn+1
     j=j[0:jn]
     villamarin=pd.DataFrame()
     villamarin['J']=j
     villamarin['KT']=kt
+    villamarin['KTn']=ktn
     villamarin['KQ']=kq
     villamarin['no']=ne
   else:
