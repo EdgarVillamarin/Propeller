@@ -65,7 +65,7 @@ def kaplan(FileID,PD,J):
   https://repository.tudelft.nl/islandora/object/uuid:b8cd2238-1cd7-4a64-a74e-73f4dcdf35d4/datastream/OBJ/download
   FileID: Name of the data file coefficient, Ka375,Ka455,Ka470,Ka575
   """
-  File='/content/propeller'+str(FileID)
+  File='/content/Propeller/'+str(FileID)
   ka=pd.read_csv(File)
   heads=list(ka.columns)
   #factor=np.ones((7,7))
